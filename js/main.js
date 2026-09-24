@@ -47,8 +47,31 @@ Draggable.create(".doodle", {
 });
 
 
+/* Easter Egg */
+Draggable.create(".logo_header", {
+    type: "x,y",
+    onDragStart: function() {
+        gsap.to(this.target, { scale: 1.1, zIndex: 10 });
+    },
+    onDragEnd: function() {
+        const character = document.querySelector(".perrine");
 
+        // Vérifie si le logo touche le personnage
+        if (Draggable.hitTest(this.target, character)) {
+            // Change par l'image de ton choix (par exemple une version spéciale)
+            character.src = "assets/image/perrine_irl.png"; // Adapte le chemin/nom de l'image
+        }
 
+        // Remet le logo à sa place dans le header et réinitialise son échelle
+        gsap.to(this.target, {
+            x: 0,
+            y: 0,
+            scale: 1,
+            zIndex: 9999, // Pour qu'il reste bien au-dessus dans le header
+            ease: "power2.out"
+        });
+    }
+});
 
 
 
@@ -56,22 +79,30 @@ Draggable.create(".doodle", {
 /*Section 2 -------------------------------------------------------------------------------*/
 
 
-gsap.to(".polaroid-img", {
+const polaroidTween = gsap.to(".polaroid-img", {
     scrollTrigger: {
         trigger: '#section1',      
         start: 'center center',     
         endTrigger: '#section2',    
         end: '5%',       
-        scrub: 1,                   
-        markers: false,              
+        scrub: 1,                 
+        markers: false,            
         id: "window2",
     },
-    y: 225,                         // Distance de descente de la photo
+    y: 225,                        
     ease: "none"
 });
 
+// Configuration du Draggable avec suppression du ScrollTrigger au clic
 Draggable.create(".polaroid-img", {
     type: "x,y",
+    onPress: function() {
+        // Dès qu'on clique/touche l'élément pour le déplacer, on supprime l'animation et le ScrollTrigger
+        if (polaroidTween.scrollTrigger) {
+            polaroidTween.scrollTrigger.kill(true); // Tue le ScrollTrigger
+        }
+        polaroidTween.kill(); // Tue l'animation GSAP liée
+    }
 });
 
 /*Section 3 -------------------------------------------------------------------------------*/
@@ -103,3 +134,16 @@ ScrollTrigger.create({
 /* Stop / Play au survol de la souris sur les cartes */
 container.addEventListener("mouseenter", () => carousselAnim.pause());
 container.addEventListener("mouseleave", () => carousselAnim.play());
+
+/* Permettre de faire défiler le carrousel à la main */
+Draggable.create(".projects-grid", {
+    type: "x",
+    bounds: "#section3", // Empêche de sortir de la section
+    inertia: true,       // Effet d'inertie fluide
+    onPress: function() {
+        carousselAnim.pause(); // Met en pause l'animation auto quand on attrape le carrousel
+    },
+    onRelease: function() {
+        carousselAnim.play();  // Relance l'animation auto quand on lâche
+    }
+});
