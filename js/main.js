@@ -5,6 +5,101 @@ gsap.registerPlugin(ScrollTrigger,Observer,ScrollToPlugin,Draggable,MotionPathPl
 
 /* Fonctions ------------------------------------ */
 
-Draggable.create(".doodle"), {
+/*Section 1 -------------------------------------------------------------------------------*/
+
+Draggable.create(".doodle", {
     type: "x,y",
-}
+    onDragStart: function() {
+        // Petit effet visuel quand on attrape l'élément
+        gsap.to(this.target, { scale: 1.1, zIndex: 10 });
+    },
+    onDragEnd: function() {
+        const character = document.querySelector(".perrine");
+
+        // On vérifie si le doodle survole / touche le personnage
+        if (Draggable.hitTest(this.target, character)) {
+            // Change l'image principale selon l'ID du doodle lâché
+            switch (this.target.id) {
+                case "doodle-clap":
+                    character.src = "assets/image/perrine_clap.png";
+                    break;
+                case "doodle-crayon":
+                    character.src = "assets/image/perrine_crayon.png";
+                    break;
+                case "doodle-laptop":
+                    character.src = "assets/image/perrine_laptop.png";
+                    break;
+                case "doodle-camera":
+                    character.src = "assets/image/perrine_appareil.png";
+                    break;
+            }
+        }
+
+        // Remet le doodle à sa position initiale et réinitialise son échelle
+        gsap.to(this.target, {
+            x: 0,
+            y: 0,
+            scale: 1,
+            zIndex: 1,
+            ease: "power2.out"
+        });
+    }
+});
+
+
+
+
+
+
+
+
+/*Section 2 -------------------------------------------------------------------------------*/
+
+
+gsap.to(".polaroid-img", {
+    scrollTrigger: {
+        trigger: '#section1',      
+        start: 'center center',     
+        endTrigger: '#section2',    
+        end: '5%',       
+        scrub: 1,                   
+        markers: false,              
+        id: "window2",
+    },
+    y: 225,                         // Distance de descente de la photo
+    ease: "none"
+});
+
+Draggable.create(".polaroid-img", {
+    type: "x,y",
+});
+
+/*Section 3 -------------------------------------------------------------------------------*/
+
+/* Duplication des cartes pour la boucle infinie */
+const container = document.querySelector(".projects-grid");
+container.innerHTML += container.innerHTML;
+
+/* Animation GSAP */
+const carousselAnim = gsap.to(container, {
+    x: "-50%",
+    duration: 20,
+    ease: "none",
+    repeat: -1,
+    paused: true // On commence par la mettre en pause pour laisser le ScrollTrigger la piloter proprement
+});
+
+/* ScrollTrigger séparé pour lancer/arrêter l'animation quand on est dans la section */
+ScrollTrigger.create({
+    trigger: "#section3",
+    start: "top center",
+    end: "bottom center",
+    onEnter: () => carousselAnim.play(),
+    onLeave: () => carousselAnim.pause(),
+    onEnterBack: () => carousselAnim.play(),
+    onLeaveBack: () => carousselAnim.pause()
+});
+
+/* Stop / Play au survol de la souris sur les cartes */
+container.addEventListener("mouseenter", () => carousselAnim.pause());
+container.addEventListener("mouseleave", () => carousselAnim.play());

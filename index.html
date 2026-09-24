@@ -21,16 +21,230 @@
    
 <body>
     
-    <!-- Section 1 -->
+    <!-- Section 1 ----------------------------------------------------------------------------------------->
    <section class="section1">
-      <img src="assets/image/perrine-calme.png" alt="perrine">
+      <img class="perrine" src="assets/image/perrine_calme.png" alt="perrine">
       <div class="doodles">
-         <img class="doodle" src="assets/image/clap.png" alt="clap">
-         <img class="doodle" src="assets/image/crayon.png" alt="crayon">
-         <img class="doodle" src="assets/image/ordinateur.jpg" alt="ordinateur">
-         <img class="doodle" src="assets/image/camera doodle.avif" alt="camera">
+         <img src="assets/image/clap.png" class="doodle" id="doodle-clap" />
+         <img src="assets/image/crayon.png" class="doodle" id="doodle-crayon" />
+         <img src="assets/image/laptop.jpg" class="doodle" id="doodle-laptop" />
+         <img src="assets/image/appareil.avif" class="doodle" id="doodle-camera" />
       </div>
+      <p>Profil polyvalent</p>
    </section>
+
+
+<img src="assets/image/" alt="">
+
+<!-- Section 2 ---------------------------------------------------------------------------------------------->
+<section id="section2" class="section2">
+    <!-- Bloc texte à gauche -->
+    <div class="infos-container">
+        <h2>PERRINE GAZZERA</h2>
+        <ul>
+            <li>Paris - 19 ans</li>
+            <li>CPD ESD Paris</li>
+            <li>Graphisme Hello Récit</li>
+            <li>Montage digithelp</li>
+        </ul>
+    </div>
+
+    <!-- Bloc appareil photo et photo séparés pour GSAP -->
+    <div class="photo-container">
+        <!-- L'appareil photo par-dessus -->
+        <img class="appareil-photo" src="assets/image/camera polaroid.png" alt="Appareil photo">
+        <!-- La photo qui sortira en JS -->
+        <img class="polaroid-img" src="assets/image/polaroid.webp" alt="Perrine">
+    </div>
+</section>
+
+
+<!-- Section 3 --------------------------------------------------------------------------------------------------->
+<section id="section3" class="section3">
+    <div class="projects-grid">
+        
+        <!-- Fiche Projet 1 -->
+        <div class="project-card-details">
+            <div class="project-header">
+                <h2>Regnier</h2>
+                <div class="project-tags">
+                    <span class="tag type-tag">Photographie</span>
+                    <span class="tag domain-tag">Portrait</span>
+                </div>
+            </div>
+            <div class="project-info-grid">
+                <p class="dates">2024-2026</p>
+            </div>
+            <div class="project-objectif">
+                <p>Expérimenter de nouvelles techniques de portrait pour enrichir mon portfolio.</p>
+            </div>
+            <div class="project-description">
+                <p>Une série de prises de vue variées réalisée entre 2024 et 2026 pour explorer différentes ambiances créatives avec mon amie modèle.</p>
+                <img class="project-img" src="assets/image/Regnier.webp"Photo du projet Regnier">
+            </div>
+            <div class="project-links">
+                <p>https://www.instagram.com/lunaia._/</p>
+                <div class="links-icons">
+                    <img class="icon-img" src="assets/image/logo_lightroom.png"Lightroom logo">
+                </div>
+            </div>
+        </div>
+
+        <!-- Fiche Projet 2 -->
+        <div class="project-card-details">
+            <div class="project-header">
+                <h2>Nom du projet 2</h2>
+                <div class="project-tags">
+                    <span class="tag type-tag">Type</span>
+                    <span class="tag domain-tag">Domaine</span>
+                </div>
+            </div>
+            <div class="project-info-grid">
+                <p class="dates">Dates</p>
+                <p class="acteurs">Acteurs du projet</p>
+            </div>
+            <div class="project-objectif">
+                <p>Objectif</p>
+            </div>
+            <div class="project-description">
+                <p>Description et contexte</p>
+                <img class="project-img" src="assets/image/photo-projet2.png" alt="Photo du projet 2">
+            </div>
+            <div class="project-links">
+                <p>Liens externes</p>
+                <div class="links-icons">
+                    <img class="icon-img" src="assets/image/icon1.png" alt="Outil 1">
+                    <img class="icon-img" src="assets/image/icon2.png" alt="Outil 2">
+                    <img class="icon-img" src="assets/image/icon3.png" alt="Outil 3">
+                </div>
+            </div>
+        </div>
+
+        <!-- Fiche Projet 3 -->
+        <div class="project-card-details">
+            <div class="project-header">
+                <h2>Nom du projet 3</h2>
+                <div class="project-tags">
+                    <span class="tag type-tag">Type</span>
+                    <span class="tag domain-tag">Domaine</span>
+                </div>
+            </div>
+            <div class="project-info-grid">
+                <p class="dates">Dates</p>
+                <p class="acteurs">Acteurs du projet</p>
+            </div>
+            <div class="project-objectif">
+                <p>Objectif</p>
+            </div>
+            <div class="project-description">
+                <p>Description et contexte</p>
+                <img class="project-img" src="assets/image/photo-projet3.png" alt="Photo du projet 3">
+            </div>
+            <div class="project-links">
+                <p>Liens externes</p>
+                <div class="links-icons">
+                    <img class="icon-img" src="assets/image/icon1.png" alt="Outil 1">
+                    <img class="icon-img" src="assets/image/icon2.png" alt="Outil 2">
+                    <img class="icon-img" src="assets/image/icon3.png" alt="Outil 3">
+                </div>
+            </div>
+        </div>
+
+        <!-- Fiche Projet 4 -->
+        <div class="project-card-details">
+            <div class="project-header">
+                <h2>Nom du projet 4</h2>
+                <div class="project-tags">
+                    <span class="tag type-tag">Type</span>
+                    <span class="tag domain-tag">Domaine</span>
+                </div>
+            </div>
+            <div class="project-info-grid">
+                <p class="dates">Dates</p>
+                <p class="acteurs">Acteurs du projet</p>
+            </div>
+            <div class="project-objectif">
+                <p>Objectif</p>
+            </div>
+            <div class="project-description">
+                <p>Description et contexte</p>
+                <img class="project-img" src="assets/image/photo-projet4.png" alt="Photo du projet 4">
+            </div>
+            <div class="project-links">
+                <p>Liens externes</p>
+                <div class="links-icons">
+                    <img class="icon-img" src="assets/image/icon1.png" alt="Outil 1">
+                    <img class="icon-img" src="assets/image/icon2.png" alt="Outil 2">
+                    <img class="icon-img" src="assets/image/icon3.png" alt="Outil 3">
+                </div>
+            </div>
+        </div>
+
+        <!-- Fiche Projet 5 -->
+        <div class="project-card-details">
+            <div class="project-header">
+                <h2>Nom du projet 5</h2>
+                <div class="project-tags">
+                    <span class="tag type-tag">Type</span>
+                    <span class="tag domain-tag">Domaine</span>
+                </div>
+            </div>
+            <div class="project-info-grid">
+                <p class="dates">Dates</p>
+                <p class="acteurs">Acteurs du projet</p>
+            </div>
+            <div class="project-objectif">
+                <p>Objectif</p>
+            </div>
+            <div class="project-description">
+                <p>Description et contexte</p>
+                <img class="project-img" src="assets/image/photo-projet5.png" alt="Photo du projet 5">
+            </div>
+            <div class="project-links">
+                <p>Liens externes</p>
+                <div class="links-icons">
+                    <img class="icon-img" src="assets/image/icon1.png" alt="Outil 1">
+                    <img class="icon-img" src="assets/image/icon2.png" alt="Outil 2">
+                    <img class="icon-img" src="assets/image/icon3.png" alt="Outil 3">
+                </div>
+            </div>
+        </div>
+
+        <!-- Fiche Projet 6 -->
+        <div class="project-card-details">
+            <div class="project-header">
+                <h2>Nom du projet 6</h2>
+                <div class="project-tags">
+                    <span class="tag type-tag">Type</span>
+                    <span class="tag domain-tag">Domaine</span>
+                </div>
+            </div>
+            <div class="project-info-grid">
+                <p class="dates">Dates</p>
+                <p class="acteurs">Acteurs du projet</p>
+            </div>
+            <div class="project-objectif">
+                <p>Objectif</p>
+            </div>
+            <div class="project-description">
+                <p>Description et contexte</p>
+                <img class="project-img" src="assets/image/photo-projet6.png" alt="Photo du projet 6">
+            </div>
+            <div class="project-links">
+                <p>Liens externes</p>
+                <div class="links-icons">
+                    <img class="icon-img" src="assets/image/icon1.png" alt="Outil 1">
+                    <img class="icon-img" src="assets/image/icon2.png" alt="Outil 2">
+                    <img class="icon-img" src="assets/image/icon3.png" alt="Outil 3">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
 
     <!-- Scripts ----------------------->
     <!-- GSAP -->
